@@ -1,0 +1,6 @@
+git config --global credential.helper store
+
+git config --global user.name "ahjawher"
+git config --global user.email 202205574@stu.uob.edu.bh
+
+AUTO SAVE
