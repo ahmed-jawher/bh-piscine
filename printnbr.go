@@ -9,7 +9,7 @@ func PrintNbr(n int) {
 		z01.PrintRune('-')
 		n = -n
 	}
-	
+
 	// Special case for zero
 	if n == 0 {
 		z01.PrintRune('0')
