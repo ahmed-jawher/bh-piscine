@@ -5,28 +5,19 @@ import (
 )
 
 func PrintNbr(n int) {
+	t := 1
 	if n < 0 {
+		t = -1
 		z01.PrintRune('-')
-		n = -n
 	}
-
-	// Special case for zero
-	if n == 0 {
+	if n != 0 {
+		f := (n / 10) * t
+		if f != 0 {
+			PrintNbr(f)
+		}
+		k := (n % 10 * t) + '0'
+		z01.PrintRune(rune(k))
+	} else {
 		z01.PrintRune('0')
-		return
-	}
-
-	// Convert the number to a slice of runes
-	digits := []rune{}
-
-	for n > 0 {
-		digit := n % 10
-		digits = append([]rune{rune('0' + digit)}, digits...) // prepend the digit to the slice
-		n /= 10
-	}
-
-	// Use for range to print each rune in the slice
-	for _, digit := range digits {
-		z01.PrintRune(digit)
 	}
 }
