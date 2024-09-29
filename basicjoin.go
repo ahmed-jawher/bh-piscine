@@ -5,6 +5,6 @@ import (
 )
 
 func BasicJoin(elems []string) string {
-	result := strings.Join(elems,"")
+	result := strings.Join(elems, "")
 	return result
 }
