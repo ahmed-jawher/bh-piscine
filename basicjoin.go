@@ -1,10 +1,9 @@
 package piscine
 
-import (
-	"strings"
-)
-
 func BasicJoin(elems []string) string {
-	result := strings.Join(elems, "")
-	return result
+	s := ""
+	for i := 0; i < len(elems); i++ {
+		s += elems[i]
+	}
+	return s
 }
