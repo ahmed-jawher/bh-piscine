@@ -20,4 +20,5 @@ func PrintNbr(n int) {
 	} else {
 		z01.PrintRune('0')
 	}
+
 }
