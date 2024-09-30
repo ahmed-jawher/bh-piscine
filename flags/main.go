@@ -9,7 +9,6 @@ import (
 func main() {
 	args := os.Args[1:]
 
-	// If no arguments or --help or -h is provided, print the help message.
 	if len(args) == 0 || args[0] == "--help" || args[0] == "-h" {
 		printHelp()
 		return
@@ -19,13 +18,13 @@ func main() {
 	orderFlag := false
 	stringArg := ""
 
-	// Parse the arguments
-	for _, arg := range args {
+	for i, arg := range args {
 		if len(arg) >= 9 && arg[:9] == "--insert=" {
-			insertValue = arg[9:] // Get the value after --insert=
-		} else if arg == "-i" || arg == "--insert" {
-			// Expect the next argument to be the value for --insert or -i
-			insertValue = args[len(args)-1] // Handles in case there's an insert value
+			insertValue = arg[9:]
+		} else if arg == "-i" {
+			if i+1 < len(args) {
+				insertValue = args[i+1]
+			}
 		} else if arg == "--order" || arg == "-o" {
 			orderFlag = true
 		} else {
@@ -33,19 +32,16 @@ func main() {
 		}
 	}
 
-	// Insert the string if --insert flag is used
 	if insertValue != "" {
 		stringArg += insertValue
 	}
 
-	// Sort the string if --order flag is used
 	if orderFlag {
 		runes := []rune(stringArg)
 		sortRunes(runes)
 		stringArg = string(runes)
 	}
 
-	// Print the resulting string
 	for _, r := range stringArg {
 		z01.PrintRune(r)
 	}
@@ -53,7 +49,13 @@ func main() {
 }
 
 func printHelp() {
-	helpText := "--insert\n  -i\n         This flag inserts the string into the string passed as argument.\n--order\n  -o\n         This flag will behave like a boolean, if it is called it will order the argument.\n"
+	helpText := `--insert
+  -i
+         This flag inserts the string into the string passed as argument.
+--order
+  -o
+         This flag will behave like a boolean, if it is called it will order the argument.
+`
 	for _, r := range helpText {
 		z01.PrintRune(r)
 	}
