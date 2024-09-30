@@ -2,7 +2,6 @@ package main
 
 import (
 	"os"
-
 	"github.com/01-edu/z01"
 )
 
@@ -17,9 +16,8 @@ func main() {
 		args = args[1:] // Remove the flag from arguments
 	}
 
-	// If no arguments are provided, print a newline and return
+	// If no arguments are provided, exit without printing anything.
 	if len(args) == 0 {
-		z01.PrintRune('\n')
 		return
 	}
 
@@ -49,6 +47,7 @@ func main() {
 			z01.PrintRune(letter) // Print the letter using z01.PrintRune
 		}
 	}
+
 	// Print a newline at the end.
 	z01.PrintRune('\n')
 }
