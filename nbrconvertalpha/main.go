@@ -44,6 +44,4 @@ func main() {
 		}
 	}
 
-	// Print a newline at the end.
-	z01.PrintRune('\n')
 }
