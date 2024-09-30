@@ -17,6 +17,12 @@ func main() {
 		args = args[1:] // Remove the flag from arguments
 	}
 
+	// If no arguments are provided, print a newline and return
+	if len(args) == 0 {
+		z01.PrintRune('\n')
+		return
+	}
+
 	// Function to convert string to integer manually
 	atoi := func(s string) (int, bool) {
 		num := 0
