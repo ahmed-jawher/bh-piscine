@@ -1,4 +1,5 @@
 package piscine
+
 func Split(s, sep string) []string {
 	length := 0
 	sublength := 0
